@@ -1,20 +1,21 @@
 {
-    "name": "guisedassari/project-manager",
+    "name": "user/project-manager",
+    "license": "MIT",
     "authors": [
         {
-            "name": "Guilherme de Jesus Antonio Sedassari",
+            "name": "guisedassari",
             "email": "guisedassari@gmail.com"
         }
     ],
     "require": {},
     "autoload": {
         "psr-4": {
-            "Kairos\\": "src",
+            "Kairos\\Framework\\": "src",
             "App\\": "app"
         }
     },
     "scripts": {
-        "server": "php -S localhost:8080 -t public"
+        "server": "php -S localhost:8085 -t public"
     },
     "config": {
         "process-timeout": 0

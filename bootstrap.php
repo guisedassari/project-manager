@@ -1,15 +1,15 @@
 <?php
 
-    require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 
-    echo (new \Kairos\Router)->index();
+$route = new Kairos\Framework\Router;
 
-    $route = $_SERVER['PATH_INFO'] ?? '/';
+$route->add('/', function () {
+    return 'estamos na homepage';
+});
 
-    if ($route == '/') {
-        echo 'Estamos na Homepage';
-    } elseif ($route == '/projects') {
-        echo 'Estamos listando os projetos';
-    } else {
-        echo 'Pagina nao encontrada';
-    }
+$route->add('/products', function () {
+    return 'estamos na pagina de produtos';
+});
+
+echo $route->run();

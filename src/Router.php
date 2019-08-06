@@ -1,12 +1,24 @@
 <?php
 
-    namespace Kairos;
+namespace Kairos\Framework;
 
 
-    class Router
+class Router
+{
+    private $routes = [];
+
+    public function add(string $pattern, $callback)
     {
-        public function index()
-        {
-            return '<h1>Teste</h1>';
-        }
+        $this->routes[$pattern] = $callback;
     }
+
+    public function run()
+    {
+        $route = $_SERVER['PATH_INFO'] ?? '/';
+
+        if (array_key_exists($route, $this->routes)) {
+            return $this->routes[$route]();
+        }
+        return 'Pagina não encontrada';
+    }
+}
